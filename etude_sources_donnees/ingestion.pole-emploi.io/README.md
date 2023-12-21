@@ -19,24 +19,21 @@
 * les offres sont retournées par paquet de 150 maximum; une gestion du fenêtrage des appels doit être mis en place. On indique une plage d’indices d’offres dans chaque requête via un paramètre range
 
 * range=[INDICE_DEBUT]-[INDICE_FIN]
-* Ex: https://api.pole-emploi.io/partenaire/offresdemploi/v2/offres/search?**range=0-149**
-
-> [!NOTE]
-> Useful information that users should know, even when skimming content.
-> [!NOTE]
-> dqsdqd
+* Ex: **range=0-149**
 
     * INDICE_FIN - INDICE_DEBUT + 1 <= 150
-    * INDICE_DEBUT < = 3000
-    * INDICE_FIN < = 3149
+    * INDICE_DEBUT <= 3000
+    * INDICE_FIN <= 3149
 
 * Les appels aux API doivent être authentifiés avec la méthode Bearer token. Ce token est obtenu préalablement via une requête d’authentification en fournissant le couple d’identifiants associé à l’application déclaré sur pole-emploi.io
 * Ce token a une durée de vie limitée à 1499 s (env. 25 min). Avant chaque appel, il faut donc s’assurer qu’il n’est pas expiré et requêter un nouveau token le cas échéant
 
-* les valeurs max de INDICE_DEBUT et INDICE_FIN limitent le nombre maximum de résultats qu’il est permit de retourner pour une recherche donnée à  MAX_OFFRES_RETURN = 3149
-Par ailleurs, le nombre d’appels est limité à 3 par seconde. En cas de dépassement de cette limite, la réponse HTTP 429 Too Many Requests est retournée, avec un header “Retry-After” indiquant le nombre de secondes de temporisation (NB: toujours égal à 1)
-il est donc nécessaire, pour ingérer l’ensemble des offres, d’itérer sur des critères de recherche qui retournent moins de 3149 offres
-un header “Content-Range” retourné dans la réponse HTTP de chaque requête, fournit la plage effectivement retournée et le nombre total d’offres pour la requête
-ce header est de la forme: 
-offres [ INDICE_DEBUT ] - [ INDICE_FIN ] / [ NB_TOTAL_OFFRES ]
-la valeur NB_TOTAL_OFFRES permet de contrôler que le nombre d’offres retournées est inférieur à NB_MAX_REQUETE, et d’itérer sur une granularité plus fine le cas échéant
+* Les valeurs max de INDICE_DEBUT et INDICE_FIN limitent le nombre maximum de résultats qu’il est permit de retourner pour une recherche donnée à **MAX_OFFRES_RETURN=3149**
+* Par ailleurs, le nombre d’appels est limité à 3 par seconde. En cas de dépassement de cette limite, la réponse HTTP 429 Too Many Requests est retournée, avec un header “Retry-After” indiquant le nombre de secondes de temporisation (NB: toujours égal à 1)
+* Il est donc nécessaire, pour ingérer l’ensemble des offres, d’itérer sur des critères de recherche qui retournent moins de 3149 offres
+* Un header Content-Range retourné dans la réponse HTTP de chaque requête, fournit la plage effectivement retournée et le nombre total d’offres pour la requête
+* Ce header est de la forme: **offres [INDICE_DEBUT]-[INDICE_FIN]/[NB_TOTAL_OFFRES]**
+* La valeur NB_TOTAL_OFFRES permet de contrôler que le nombre d’offres retournées est inférieur à NB_MAX_REQUETE, et d’itérer sur une granularité plus fine le cas échéant
+
+
+![](/assets/images/infra-ingestion.png)

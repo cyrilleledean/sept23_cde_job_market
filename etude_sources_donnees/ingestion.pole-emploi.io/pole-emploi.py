@@ -7,7 +7,7 @@ from threading import Thread
 MAX_OFFRES = 3149
 
 def get_secrets():
-    with open('./pole-emploi-io/secrets.json') as secrets:
+    with open('./secrets.json') as secrets:
         secrets = json.load(secrets)
     return secrets
 
@@ -295,18 +295,11 @@ if __name__ == '__main__':
     authenticate(app='app_1')
     authenticate(app='app_2')
 
-    total = get_nb_total_offres(app='app_1')
+    total_offres_api = get_nb_total_offres(app='app_1')
     debut_total = time.time()
     date_debut = datetime.now()
 
-    ingestion_data = {
-        "message": "Début ingestion des offres d'emploi depuis API pole-emploi.io",
-        "date_debut": date_debut.strftime('%d/%m/%Y %H:%M:%S'),
-        "total_offres": total
-    }
-
-    print(f"\n\n{ingestion_data}\n\n")
-
+    print(f"\n\n{date_debut.strftime('%d/%m/%Y %H:%M:%S')}: démarrage collecte de {total_offres_api} offres d'emploi depuis API pole-emploi.io\n\n")
 
     # Création des index ElasticSearch    
 
@@ -316,11 +309,6 @@ if __name__ == '__main__':
     requests.put(url=f'http://localhost:9200/erreurs')
     requests.delete(url=f'http://localhost:9200/ingestion')
     requests.put(url=f'http://localhost:9200/ingestion')
-
-    headers = {'Content-Type': 'application/json'}
-
-    requests.post(url='http://localhost:9200/ingestion/_doc/', data=json.dumps(ingestion_data), headers=headers)
-
 
     # référentiels (pour itération des offres)
 
@@ -332,8 +320,7 @@ if __name__ == '__main__':
 
     threads = []
 
-    #app_switch = 'app_2'
-    app_switch = 'app_1'
+    app_switch = 'app_2'
     app = 'app_1'
 
     for region in regions:
@@ -350,14 +337,21 @@ if __name__ == '__main__':
 
     duree_totale = ('0' + str(hours) if hours < 10 else str(hours)) + ':' + ('0' + str(minutes) if minutes < 10 else str(minutes))
 
+    response_count = requests.get(url='http://localhost:9200/offres/_count')
+    response_count_json = json.loads(response_count.text)
+
+    nb_offres = response_count_json['count']
+
     ingestion_data = {
         "message": "Fin ingestion des offres d'emploi depuis API pole-emploi.io",
         "date_debut": date_debut.strftime('%d/%m/%Y %H:%M:%S'),
         "date_fin": datetime.now().strftime('%d/%m/%Y %H:%M:%S'),
-        "total_offres": total,
+        "total_offres": total_offres_api,
+        "total_offres_collecte": nb_offres,
         "duree_totale": duree_totale
     }
 
+    headers = {'Content-Type': 'application/json'}
     requests.post(url='http://localhost:9200/ingestion/_doc/', data=json.dumps(ingestion_data), headers=headers)
 
     print(f"\n\n{ingestion_data}\n\n")
