@@ -112,7 +112,7 @@ $ docker-compose up -d
 ```
 ![](assets/images/instances_application.png)
 
-![](assets/images/instance-api.png)
+![](assets/images/instance_api.png)
 
 * Création d'un environnement virtuel Python et installation des dépendances
 * Activation de l'environnement virtuel
