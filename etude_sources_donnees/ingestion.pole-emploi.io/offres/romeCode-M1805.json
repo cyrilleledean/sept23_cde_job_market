@@ -1,0 +1,102 @@
+{
+    "id": "166CQRN",
+    "intitule": "Ingénieur / Ingénieure développement (H/F)",
+    "description": "Au sein de la Direction Technique et rattaché au Responsable Développement et Système d'Information, vous intégrez et venez renforcer une équipe de 2 collaborateurs. \nPrincipalement via Intellij, vous participerez activement au développement et à la maintenance des applications informatiques ainsi qu'au suivi de son application au sein de l'entreprise. \n\nMissions : \nAssurer l'analyse fonctionnelle, la conception technique et la mise au point de documentations des programmes dans le respect des normes et standards inhérents au service. \nAssurer la formation des utilisateurs sur les applications développées \nAssurer le support de premier niveau aux utilisateurs \nEffectuer le contrôle qualité des différents processus informatiques et proposer des solutions d'optimisation \nEffectuer le reporting de son activité à sa direction \n\nProfil recherché : Bac +5/ Ingénieur en développement informatique - Autonomie, esprit d'analyse, veille technologique, capacité d'apprentissage. - Connaissances techniques requises : Intellij, JAVA, Python, SQL, NoSQL. (React ou Angular serait un plus). - Être à l'aise sur les systèmes d'exploitation Windows, Linux. - Avoir des connaissances réseau IP.",
+    "dateCreation": "2023-12-11T13:42:39.000Z",
+    "dateActualisation": "2023-12-19T11:47:05.000Z",
+    "lieuTravail": {
+        "libelle": "974 - ST DENIS",
+        "latitude": -20.909778,
+        "longitude": 55.444588,
+        "codePostal": "97400",
+        "commune": "97411"
+    },
+    "romeCode": "M1805",
+    "romeLibelle": "Études et développement informatique",
+    "appellationlibelle": "Ingénieur / Ingénieure en développement d'applications",
+    "entreprise": {
+        "nom": "PROFIL OCEAN INDIEN",
+        "description": "Créée en 1989, PROFIL Océan Indien est la 1ère agence locale de travail temporaire implantée à la Réunion. Fort de notre expérience, nos agences connaissent parfaitement le tissu économique, les bassins d'emplois et les spécificités locales des entreprises. En initiant des parcours professionnels durables, nous misons sur le capital humain comme levier fondamental  du développement à la Réunion.",
+        "logo": "https://entreprise.pole-emploi.fr/static/img/logos/SZ98Xjx9LZMiwhOmc3kSm0siH16ShWNE.png",
+        "url": "http://www.profiloi.fr/",
+        "entrepriseAdaptee": false
+    },
+    "typeContrat": "CDI",
+    "typeContratLibelle": "Contrat à durée indéterminée",
+    "natureContrat": "Contrat travail",
+    "experienceExige": "D",
+    "experienceLibelle": "Débutant accepté",
+    "formations": [
+        {
+            "niveauLibelle": "Bac+5 et plus ou équivalents",
+            "exigence": "E"
+        }
+    ],
+    "competences": [
+        {
+            "code": "300688",
+            "libelle": "Application web",
+            "exigence": "S"
+        },
+        {
+            "code": "109846",
+            "libelle": "Concevoir une application web",
+            "exigence": "S"
+        },
+        {
+            "code": "300188",
+            "libelle": "Rédiger un cahier des charges, des spécifications techniques",
+            "exigence": "S"
+        },
+        {
+            "code": "300242",
+            "libelle": "Déterminer des mesures correctives",
+            "exigence": "S"
+        },
+        {
+            "code": "300366",
+            "libelle": "Recueillir et analyser les besoins client",
+            "exigence": "S"
+        }
+    ],
+    "salaire": {
+        "libelle": "Mensuel de 3500,00 Euros sur 12 mois",
+        "complement1": "Chèque repas"
+    },
+    "dureeTravailLibelle": "39H Travail en journée",
+    "dureeTravailLibelleConverti": "Temps plein",
+    "alternance": false,
+    "contact": {
+        "nom": "PROFIL OCEAN INDIEN - Mme JACOB Violette",
+        "coordonnees1": "Pour postuler, utiliser le lien suivant : https://candidat.pole-emploi.fr/offres/recherche/detail/166CQRN",
+        "courriel": "Pour postuler, utiliser le lien suivant : https://candidat.pole-emploi.fr/offres/recherche/detail/166CQRN"
+    },
+    "nombrePostes": 1,
+    "accessibleTH": false,
+    "deplacementCode": "2",
+    "deplacementLibelle": "Ponctuels Zone départementale",
+    "qualificationCode": "9",
+    "qualificationLibelle": "Cadre",
+    "codeNAF": "78.20Z",
+    "secteurActivite": "78",
+    "secteurActiviteLibelle": "Activités des agences de travail temporaire",
+    "qualitesProfessionnelles": [
+        {
+            "libelle": "Faire preuve de curiosité",
+            "description": "Capacité à aller chercher au-delà de ce qui est donné à voir, à s'ouvrir sur la nouveauté et à investiguer pour comprendre et agir de façon appropriée."
+        },
+        {
+            "libelle": "Travailler en équipe",
+            "description": "Capacité à travailler et à se coordonner avec les autres au sein de l'entreprise pour réaliser les objectifs fixés."
+        },
+        {
+            "libelle": "Faire preuve d'autonomie",
+            "description": "Capacité à prendre en charge son activité sans devoir être encadré de façon continue (le cas échéant, à solliciter les autres acteurs de l'entreprise)."
+        }
+    ],
+    "origineOffre": {
+        "origine": "1",
+        "urlOrigine": "https://candidat.pole-emploi.fr/offres/recherche/detail/166CQRN"
+    },
+    "offresManqueCandidats": false
+}
