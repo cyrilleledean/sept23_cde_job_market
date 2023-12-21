@@ -1,9 +1,8 @@
-# Ingestion des offres d’emploi via l’API 
-[pole-emploi.io](https://pole-emploi.io/)
+# Ingestion des offres d’emploi pole-emploi.io via l’API offres d’emploi
 
 ## Objectif
 
-* Collecte de la totalité des offres pôle emploi via l’API offres d’emploi
+* Collecte de la totalité des offres pole-emploi.io[^1] via l’API offres d’emploi
 
 ## Présentation du jeu de données
 
@@ -29,11 +28,11 @@
 * Ce token a une durée de vie limitée à 1499 s (env. 25 min). Avant chaque appel, il faut donc s’assurer qu’il n’est pas expiré et requêter un nouveau token le cas échéant
 
 * Les valeurs max de INDICE_DEBUT et INDICE_FIN limitent le nombre maximum de résultats qu’il est permit de retourner pour une recherche donnée à **MAX_OFFRES_RETURN=3149**
-* Par ailleurs, le nombre d’appels est limité à 3 par seconde. En cas de dépassement de cette limite, la réponse HTTP 429 Too Many Requests est retournée, avec un header “Retry-After” indiquant le nombre de secondes de temporisation (NB: toujours égal à 1)
+* Par ailleurs, le nombre d’appels est limité à 3 par seconde. En cas de dépassement de cette limite, la réponse HTTP 429 Too Many Requests est retournée, avec un header _Retry-After_ indiquant le nombre de secondes de temporisation (NB: toujours égal à 1)
 * Il est donc nécessaire, pour ingérer l’ensemble des offres, d’itérer sur des critères de recherche qui retournent moins de 3149 offres
 * Un header Content-Range retourné dans la réponse HTTP de chaque requête, fournit la plage effectivement retournée et le nombre total d’offres pour la requête
 * Ce header est de la forme: **offres [INDICE_DEBUT]-[INDICE_FIN]/[NB_TOTAL_OFFRES]**
 * La valeur NB_TOTAL_OFFRES permet de contrôler que le nombre d’offres retournées est inférieur à NB_MAX_REQUETE, et d’itérer sur une granularité plus fine le cas échéant
 
 
-![](/assets/images/infra-ingestion.png)
+![](assets/images/infra-ingestion.png)
