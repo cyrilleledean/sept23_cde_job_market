@@ -70,11 +70,6 @@
 
 ![](assets/images/infra-ingestion.png)
 
-```
-# Lancement des conteneurs Docker Elasticsearch pour l'ingestion
-$ docker-compose up -d
-```
-
 ## Principe général de requêtage des offres
 
 * On requête sur un 1er niveau de granularité de recherche (ex: région)
